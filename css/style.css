@@ -385,6 +385,32 @@ html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 .footer { padding: 32px 24px 40px; border-top: 1px solid var(--border); text-align: center; color: var(--faint); font-size: 13.5px; }
 .footer p { margin: 4px 0; }
 .footer b { color: var(--muted); }
+.footer a { color: var(--muted); }
+.footer a:hover { color: var(--text); }
+.footer .copyright { color: var(--muted); font-weight: 500; }
+
+/* Contact */
+.icon-fill { fill: currentColor; stroke: none; }
+#contact { padding-top: 0; }
+.contact {
+  display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 40px; border-radius: 24px;
+  background: var(--surface); border: 1px solid var(--border);
+}
+.contact h2 { margin-bottom: 10px; }
+.contact p { margin: 0; max-width: 580px; color: var(--muted); font-size: 16.5px; line-height: 1.65; }
+.contact p b { color: var(--text); }
+.btn.linkedin { flex: none; background: #0a66c2; border-color: transparent; color: #fff; }
+.btn.linkedin:hover:not(:disabled) { background: #0b74de; border-color: transparent; }
+
+/* Explorer: copyright and contact under the equipment list */
+#eq-list { flex: 1; min-height: 0; }
+.sidebar-foot {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  padding: 10px 16px; border-top: 1px solid var(--border); font-size: 12px; color: var(--faint);
+}
+.sidebar-foot a { display: inline-flex; align-items: center; gap: 6px; color: #b8afff; font-weight: 600; text-decoration: none; }
+.sidebar-foot a:hover { color: #d4ceff; }
+.sidebar-foot svg { width: 14px; height: 14px; }
 
 @media (max-width: 960px) {
   .hero { grid-template-columns: 1fr; min-height: 0; padding-top: 48px; gap: 36px; }
@@ -404,4 +430,5 @@ html { scroll-behavior: smooth; scroll-padding-top: 80px; }
   .steps, .how-grid { grid-template-columns: 1fr; }
   .float-chip { font-size: 11.5px; padding: 6px 10px; }
   .cta { padding: 36px 16px; }
+  .contact { flex-direction: column; align-items: flex-start; gap: 22px; padding: 28px 20px; }
 }

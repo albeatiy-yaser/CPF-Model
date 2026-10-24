@@ -48,3 +48,9 @@ Then open http://localhost:8000. Opening `index.html` directly from disk will no
 ## Note
 
 Operating values are typical and for learning only. Real plants vary.
+
+## Author & contact
+
+Created by **Yaser Albeatiy**. Questions, feedback or collaboration: [LinkedIn](https://www.linkedin.com/in/yaser-ahmed-a76a6211b)
+
+© 2026 Yaser Albeatiy. All rights reserved.
