@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Plant Explorer | CPF 3D Explorer</title>
+  <meta name="description" content="Walk through an oil Central Processing Facility in 3D. Click any equipment to learn its function, operating conditions and internal parts.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body class="explorer">
+  <div id="viewer" aria-label="3D model of the CPF"></div>
+
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="CPF 3D Explorer home">
+      <img src="favicon.svg" alt="" width="28" height="28">
+      <span>CPF <em>3D</em> Explorer</span>
+    </a>
+    <div class="toolbar">
+      <button id="btn-list" class="tbtn" aria-pressed="false" title="Show the equipment list">
+        <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span>Equipment</span>
+      </button>
+      <button id="btn-tour" class="tbtn accent" aria-pressed="false" title="Guided tour through the process">
+        <svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></svg><span>Follow the Process</span>
+      </button>
+      <button id="btn-xray" class="tbtn" aria-pressed="false" title="See inside the vessels">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/></svg><span>X-ray</span>
+      </button>
+      <button id="btn-labels" class="tbtn" aria-pressed="true" title="Show or hide labels">
+        <svg viewBox="0 0 24 24"><path d="M4 7h11l5 5-5 5H4z"/></svg><span>Labels</span>
+      </button>
+      <button id="btn-flow" class="tbtn" aria-pressed="true" title="Show or hide the moving flow markers">
+        <svg viewBox="0 0 24 24"><path d="M3 12h13M12 7l5 5-5 5"/></svg><span>Flow</span>
+      </button>
+      <button id="btn-reset" class="tbtn" title="Back to the full plant view">
+        <svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 3-6.2M4 4v4h4"/></svg><span>Reset</span>
+      </button>
+    </div>
+  </header>
+
+  <aside id="sidebar" aria-label="Equipment list">
+    <div class="search">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      <input id="search" type="search" placeholder="Search equipment..." autocomplete="off">
+    </div>
+    <nav id="eq-list"></nav>
+  </aside>
+
+  <section id="panel" hidden aria-live="polite"></section>
+
+  <div id="legend">
+    <button id="legend-toggle" class="legend-head">Flow lines <svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></svg></button>
+    <ul id="legend-items"></ul>
+  </div>
+
+  <div id="tourbar" hidden></div>
+  <div id="tooltip" hidden></div>
+  <div id="hint">Drag to rotate · Scroll to zoom · Right-drag to pan · Click any equipment</div>
+
+  <div id="loader">
+    <div class="spinner"></div>
+    <p>Building the plant...</p>
+    <noscript><p class="error">This page needs JavaScript to show the 3D model.</p></noscript>
+  </div>
+
+  <script type="module" src="js/explorer.js"></script>
+</body>
+</html>

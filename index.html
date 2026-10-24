@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>CPF 3D Explorer | Oil Central Processing Facility in 3D</title>
+  <meta name="description" content="An interactive 3D model of an oil Central Processing Facility (CPF). Click each piece of equipment to learn its function, operating conditions and internal parts.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body class="home">
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="CPF 3D Explorer home">
+      <img src="favicon.svg" alt="" width="28" height="28">
+      <span>CPF <em>3D</em> Explorer</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#about">What is a CPF</a>
+      <a href="#equipment">Equipment</a>
+      <a href="#how">How to use</a>
+    </nav>
+    <a class="btn primary small" href="explorer.html">Open the 3D Plant</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow"><span></span>Interactive 3D · Oil Central Processing Facility</p>
+        <h1>Explore an oil CPF in <span class="grad">interactive 3D</span></h1>
+        <p class="hero-lead">Walk through a complete Central Processing Facility, from the inlet manifold to the export meter. Click any equipment to learn what it does, how it works, its typical operating conditions and the parts inside it.</p>
+        <div class="hero-btns">
+          <a class="btn primary" href="explorer.html">Enter the Plant <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn" href="#equipment">Browse equipment</a>
+        </div>
+        <ul class="stats">
+          <li><b id="stat-eq">12</b><span>Equipment items</span></li>
+          <li><b>5</b><span>Process sections</span></li>
+          <li><b>100%</b><span>In your browser</span></li>
+        </ul>
+      </div>
+      <div class="hero-3d">
+        <div id="hero-viewer"></div>
+        <span class="float-chip c1"><i></i>Separation</span>
+        <span class="float-chip c2"><i></i>Oil Treating</span>
+        <span class="float-chip c3"><i></i>Storage &amp; Export</span>
+        <span class="live-badge"><i></i>Live 3D model · drag to rotate</span>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="about">
+        <div>
+          <p class="kicker">The basics</p>
+          <h2>What is a Central Processing Facility?</h2>
+          <p>A <b>Central Processing Facility (CPF)</b> is the plant where the fluids from many oil wells are collected and processed. What comes out of a well is never pure oil. It is a mixture of <b class="t-oil">oil</b>, <b class="t-gas">gas</b> and <b class="t-water">water</b>, sometimes with sand and salt.</p>
+          <p>The CPF separates this mixture and treats the oil until it meets the sales specification. The oil is then stored, measured and exported by pipeline or tanker. The gas and water go to their own systems for compression, re-injection or disposal.</p>
+        </div>
+        <div class="spec">
+          <h3>Typical export crude specification</h3>
+          <table>
+            <tr><th>Water content (BS&amp;W)</th><td>≤ 0.5 %</td></tr>
+            <tr><th>Salt content</th><td>≤ 10 PTB</td></tr>
+            <tr><th>Vapour pressure (RVP)</th><td>≤ 10 – 12 psia</td></tr>
+            <tr><th>H₂S</th><td>Per contract, e.g. &lt; 10 – 60 ppm</td></tr>
+          </table>
+          <p>Typical values only. Each export contract sets its own limits.</p>
+        </div>
+      </div>
+      <ol class="steps" id="steps"></ol>
+    </section>
+
+    <section id="equipment" class="section">
+      <p class="kicker">The equipment</p>
+      <h2>Twelve pieces of equipment, one process</h2>
+      <p class="section-lead">Each card opens the 3D plant right at that equipment, with its full information card.</p>
+      <div class="filters" id="filters" role="tablist"></div>
+      <div class="eq-grid" id="eq-grid"></div>
+    </section>
+
+    <section id="how" class="section">
+      <p class="kicker">How to use it</p>
+      <h2>Learn the plant your way</h2>
+      <div class="how-grid">
+        <article>
+          <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M21 3v6h-6"/></svg>
+          <h3>Rotate, zoom and pan</h3>
+          <p>Drag to rotate. Scroll or pinch to zoom. Right-drag (or two fingers on a phone) to move sideways.</p>
+        </article>
+        <article>
+          <svg viewBox="0 0 24 24"><path d="M9 3l10 10-4 1 3 6-2 1-3-6-4 3z"/></svg>
+          <h3>Click to learn</h3>
+          <p>Click any equipment or its label to open its card: function, how it works, operating conditions and internals.</p>
+        </article>
+        <article>
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/></svg>
+          <h3>See inside with X-ray</h3>
+          <p>Look through the vessel walls at the liquid layers, weirs, mist pads, electrodes, fire tube and trays.</p>
+        </article>
+        <article>
+          <svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></svg>
+          <h3>Follow the process</h3>
+          <p>Take the guided tour from the wells to the export pipeline, one step at a time, with coloured flow lines.</p>
+        </article>
+      </div>
+      <div class="cta">
+        <h2>Ready to step inside the plant?</h2>
+        <a class="btn primary" href="explorer.html">Enter the Plant <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p><b>CPF 3D Explorer</b> · An educational model of an oil Central Processing Facility.</p>
+    <p>Operating values are typical and for learning only. Real plants vary. 3D graphics by <a href="https://threejs.org" target="_blank" rel="noopener">Three.js</a>.</p>
+  </footer>
+
+  <script type="module" src="js/home.js"></script>
+</body>
+</html>
